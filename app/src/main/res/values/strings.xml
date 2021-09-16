@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">dice_throw</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="roll_all">Roll All</string>
+    <string name="roll_once">Roll Once</string>
+</resources>
