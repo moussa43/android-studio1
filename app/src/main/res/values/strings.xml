@@ -4,4 +4,7 @@
     <string name="minus">-</string>
     <string name="roll_all">Roll All</string>
     <string name="roll_once">Roll Once</string>
+    <string name="history">History</string>
+    <string name="back">Back</string>
+    <string name="deleteAll">Delete All</string>
 </resources>

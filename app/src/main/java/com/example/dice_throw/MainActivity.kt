@@ -1,5 +1,6 @@
 package com.example.dice_throw
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -60,11 +61,18 @@ class MainActivity : AppCompatActivity()
 
     fun rollAll(sender: View)
     {
+        val temp_dice_list: MutableList<Int> = mutableListOf()
+
         for (i in 0 until nbOfDice.text.toString().toInt())
         {
-            imagesArray[i].setImageResource(newDiceImage())
+            val randum_num = (1..6).random()
+            temp_dice_list.add(randum_num)
+
+            imagesArray[i].setImageResource(newDiceImage(randum_num))
             imagesArray[i].isVisible = true
         }
+
+        HistoryDB.add_collection(DiceCollection(temp_dice_list, nbOfDice.text.toString().toInt()))
 
         for(i in nbOfDice.text.toString().toInt() until 4)
         {
@@ -84,8 +92,11 @@ class MainActivity : AppCompatActivity()
             return
         }
 
-        imagesArray[nbOfCurrentDices].setImageResource(newDiceImage())
+        val randum_num = (1..6).random()
+        imagesArray[nbOfCurrentDices].setImageResource(newDiceImage(randum_num))
         imagesArray[nbOfCurrentDices].isVisible = true
+
+        HistoryDB.add_partial(randum_num, nbOfDice.text.toString().toInt())
 
         for(i in nbOfCurrentDices + 1 until 4)
         {
@@ -100,10 +111,16 @@ class MainActivity : AppCompatActivity()
         }
     }
 
-
-    private fun newDiceImage(): Int
+    fun history(sender: View)
     {
-        when((1..6).random())
+        val intent = Intent(this, HistoryActivity::class.java)
+        startActivity(intent)
+    }
+
+
+    private fun newDiceImage(randum_nb: Int): Int
+    {
+        when(randum_nb)
         {
             1 -> return R.drawable.dice_1
             2 -> return R.drawable.dice_2
