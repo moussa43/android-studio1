@@ -1,16 +1,31 @@
 package com.example.dice_throw
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.isVisible
+import com.android.volley.Request
+import com.android.volley.RequestQueue
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
+import org.json.JSONObject
 
 class MainActivity : AppCompatActivity()
 {
+    companion object
+    {
+        @SuppressLint("StaticFieldLeak")
+        @JvmStatic
+        lateinit var context: Context
+    }
+
     lateinit var nbOfDice : TextView
     lateinit var minus_buton : Button
     lateinit var plus_buton : Button
@@ -24,6 +39,8 @@ class MainActivity : AppCompatActivity()
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        context = applicationContext
 
         nbOfDice = findViewById<TextView>(R.id.Nub_Dice)
         minus_buton = findViewById<Button>(R.id.minus_button)
@@ -131,4 +148,5 @@ class MainActivity : AppCompatActivity()
         }
         return 0
     }
+
 }
