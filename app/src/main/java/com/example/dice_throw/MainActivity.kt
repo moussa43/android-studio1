@@ -50,6 +50,18 @@ class MainActivity : AppCompatActivity()
         imagesArray.add(findViewById<ImageView>(R.id.Second_Dice))
         imagesArray.add(findViewById<ImageView>(R.id.Third_Dice))
         imagesArray.add(findViewById<ImageView>(R.id.Forth_Dice))
+
+        val button = findViewById<Button>(R.id.galleryBtn)
+        button.setOnClickListener {
+            val goToActivity2 = Intent(applicationContext, GalleryActivity::class.java)
+            startActivity(goToActivity2)
+        }
+
+        val button2 = findViewById<Button>(R.id.mapBtn)
+        button2.setOnClickListener {
+            val goToActivity2 = Intent(applicationContext, MapsActivity::class.java)
+            startActivity(goToActivity2)
+        }
     }
 
 
