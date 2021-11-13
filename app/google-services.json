@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "581834802775",
+    "project_id": "dice-throw-b8e95",
+    "storage_bucket": "dice-throw-b8e95.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:581834802775:android:d940ff6468c4fe41124512",
+        "android_client_info": {
+          "package_name": "com.example.dice_throw"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "581834802775-gmdhtoe4l398nfbqh9ec4g30ntbuogjh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBesG_aZd0XvAaEBoe9EVkh7sGj8cT1ijw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "581834802775-gmdhtoe4l398nfbqh9ec4g30ntbuogjh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

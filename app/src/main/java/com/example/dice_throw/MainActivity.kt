@@ -1,21 +1,18 @@
 package com.example.dice_throw
 
 import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.isVisible
-import com.android.volley.Request
-import com.android.volley.RequestQueue
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
-import org.json.JSONObject
 
 class MainActivity : AppCompatActivity()
 {
@@ -160,5 +157,19 @@ class MainActivity : AppCompatActivity()
         }
         return 0
     }
+    private fun createChannel()
+    {
+        if (Build.VERSION.SDK_INT>= Build.VERSION_CODES.O)
+        {
+            val s = "Moussa's Channel"
+            val text = "Channel Informations"
+            val priority  = NotificationManager.IMPORTANCE_DEFAULT
+            val notificationChannel = NotificationChannel(Notification.CHANNEL_ID, s,priority ).apply {
+                description = text
+            }
+            val notificationManager: NotificationManager= getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(notificationChannel)
+        }
 
+    }
 }
